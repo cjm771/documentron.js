@@ -47,18 +47,6 @@ documentron.js
 - **Templating** 
   - [Default Templates](#documentation/Default_Templates) 
   - [About Templating](#documentation/About_Templating) 
-- **Commands** 
-  - [boldify](#documentation/boldify) 
-  - [underlineify](#documentation/underlineify) 
-  - [trim](#documentation/trim) 
-  - [replace](#documentation/replace) 
-  - [if](#documentation/if) 
-  - [each](#documentation/each) 
-  - [set](#documentation/set) 
-  - [setPartial](#documentation/setPartial) 
-  - [jsonify](#documentation/jsonify) 
-  - [join](#documentation/join) 
-  - [partial](#documentation/partial) 
 
  
 
