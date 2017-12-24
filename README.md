@@ -60,7 +60,7 @@ About The Syntax
 
   
 
-Documentron parses scripts and looks for comment blocks, with the open portion having double \*\* asterisks. A doc item has 3 parts: a name, description, and a series of commands we call attribues. Coincidentally, they are defined by @+'CommandName'.  This syntax is based on the JSDoc syntax. Some improvements were creating more flexible framework for subparameters, flags, and groups. Preceding Asterisks in front of commands are optional and will be ignored. See [Data_Structure](#Data_Structure) for how it translates.<br/><br/>        /\*\* myFunction<br/><br/>            &lt;-- my description here --><br/><br/>            \*\*\* comments<br/>            @attribute1<br/>            @attribute2<br/>            @...<br/><br/>        \*/
+Documentron parses scripts and looks for comment blocks, with the open portion having double \*\* asterisks. A doc item has 3 parts: a name, description, and a series of commands we call attribues. Coincidentally, they are defined by @+'CommandName'.  This syntax is based on the JSDoc syntax. Some improvements were creating more flexible framework for subparameters, flags, and groups. Preceding Asterisks in front of commands are optional and will be ignored. See [Data_Structure](#documentation/Data_Structure) for how it translates.<br/><br/>        /\*\* myFunction<br/><br/>            &lt;-- my description here --><br/><br/>            \*\*\* comments<br/>            @attribute1<br/>            @attribute2<br/>            @...<br/><br/>        \*/
 
 *Example 1: Typical doc object syntax*
 ```false
@@ -110,7 +110,7 @@ var MyClass = function(opts){...}
 
   
 
-Each doc object can either be a function (the default), [@property](#@property) , or [@info](#@info) type item. This flags this doc object as a property, rather than the default method/function. It follows the following format:<br/><br/>        @property &lt;type&gt;
+Each doc object can either be a function (the default), [@property](#documentation/@property) , or [@info](#documentation/@info) type item. This flags this doc object as a property, rather than the default method/function. It follows the following format:<br/><br/>        @property &lt;type&gt;
 
 *Example 1: @property string (js)*
 ```js
@@ -129,7 +129,7 @@ this.myProperty = "hello"
 
   
 
-Each doc object can either be a function (the default), [@property](#@property) , or [@info](#@info) type item. Sometimes in our documentation we just have plain old information to expel that is not necessarily part of the source code as a function or property. This flags this doc object as an informative type, rather than the default method/function or a property. Using underscore for the naming of this type will automatically be converted to spaces in the menu and html exporters. [@example](#@example) and #group can be used on these as well!
+Each doc object can either be a function (the default), [@property](#documentation/@property) , or [@info](#documentation/@info) type item. Sometimes in our documentation we just have plain old information to expel that is not necessarily part of the source code as a function or property. This flags this doc object as an informative type, rather than the default method/function or a property. Using underscore for the naming of this type will automatically be converted to spaces in the menu and html exporters. [@example](#documentation/@example) and #group can be used on these as well!
 
 *Example 1: @info (js)*
 ```js
@@ -147,7 +147,7 @@ Each doc object can either be a function (the default), [@property](#@property) 
 
   
 
-Similar functions/properties/etc can be grouped for better organization by specifying a groupName.  When exporting to html/md/JSON/etc, groups allow one to sort and filter the data structure. See [Group_Sorting](#Group_Sorting) and [Filtering_Objects](#Filtering_Objects) for more info on how groups might be used. Subgroups can indefinitely be used (following dot notation)<br/><br/>@group &lt;groupName&gt;<br/>@group &lt;groupName.SubGroupName&gt;<br/>@group &lt;groupName.SubGroupName.SubSub..&gt;
+Similar functions/properties/etc can be grouped for better organization by specifying a groupName.  When exporting to html/md/JSON/etc, groups allow one to sort and filter the data structure. See [Group_Sorting](#documentation/Group_Sorting) and [Filtering_Objects](#documentation/Filtering_Objects) for more info on how groups might be used. Subgroups can indefinitely be used (following dot notation)<br/><br/>@group &lt;groupName&gt;<br/>@group &lt;groupName.SubGroupName&gt;<br/>@group &lt;groupName.SubGroupName.SubSub..&gt;
 
 *Example 1: @group simple use case (js)*
 ```js
@@ -176,7 +176,7 @@ function generateHTML(){...}
 
   
 
-The @param is the argument in a function. For instance, there are three in the following: functionName(param1, param2, param3). Very frequently, you may have multiple parameters, and can use the [@param](#@param) attribute multiple times as needed. There are two special zones. Curly braces {} are used to describe the type of the value. Flags are comma delimited key:value pairs within brackets []. Both of these [flags] and {type} zones can precede or come after the param/subparam name.<br/><br/>syntax is typically:<br/>@param {type} [flags] name - title<br/><br/>Subparameters are also available, aka parameters of a parameter. a use case would be if you receive  options as a single parameter and want to describe the individual key values (subparams). this is done on a per line basis with a --> instead of hyphen.<br/><br/>@param {type} [flags] name - title<br/>        {type} [flags] key1 --> value1<br/>        {type} [flags] key2 --> value2<br/>        {type} [flags] key3 --> value3<br/><br/>Certain flags are included and used by default, of course custom flags can be added.<br/>    "optional" - this parameter is optional<br/>    "sample" - this is a sample value for this parameter . an example of what can be used<br/>    "default" - this is the default value if none is given.
+The @param is the argument in a function. For instance, there are three in the following: functionName(param1, param2, param3). Very frequently, you may have multiple parameters, and can use the [@param](#documentation/@param) attribute multiple times as needed. There are two special zones. Curly braces {} are used to describe the type of the value. Flags are comma delimited key:value pairs within brackets []. Both of these [flags] and {type} zones can precede or come after the param/subparam name.<br/><br/>syntax is typically:<br/>@param {type} [flags] name - title<br/><br/>Subparameters are also available, aka parameters of a parameter. a use case would be if you receive  options as a single parameter and want to describe the individual key values (subparams). this is done on a per line basis with a --> instead of hyphen.<br/><br/>@param {type} [flags] name - title<br/>        {type} [flags] key1 --> value1<br/>        {type} [flags] key2 --> value2<br/>        {type} [flags] key3 --> value3<br/><br/>Certain flags are included and used by default, of course custom flags can be added.<br/>    "optional" - this parameter is optional<br/>    "sample" - this is a sample value for this parameter . an example of what can be used<br/>    "default" - this is the default value if none is given.
 
 *Example 1: @param simple example (js)*
 ```js
@@ -216,7 +216,7 @@ function setPerson(opts){
 
   
 
-What this functions returns. Curly braces {} are used to describe the type of the value, similar to [@param]([@param](#@param)) . Return also can have subparameters, similar to #@param .. a use case would be if you're returning an object and want to describe the individual key values].<br/><br/>@returns {&lt;type&gt;} &lt;description&gt;
+What this functions returns. Curly braces {} are used to describe the type of the value, similar to [@param](#documentation/@param) . Return also can have subparameters, similar to [@param](#documentation/@param) .. a use case would be if you're returning an object and want to describe the individual key values].<br/><br/>@returns {&lt;type&gt;} &lt;description&gt;
 
 *Example 1: @returns simple example (js)*
 ```js
@@ -279,7 +279,7 @@ function addNumbers(a,b){
 
   
 
-Meta data is data that you can specify that doesn't necessarily relate to a specific variable,info, or method in your script. This might be info important for you, but not necessarilly visible for the public. The intention is to be able to use it in your own way when exported to Object and make it visible only if you desire. See [Data_Structure](#Data_Structure) to see where meta info is stored.<br/><br/>     It can be multiple lines and be plain text or written to be  multiple sub parameters (similar to #@param) via the following subpart syntax:  subkey[flagName:flagValue] --> This is the subkey Description
+Meta data is data that you can specify that doesn't necessarily relate to a specific variable,info, or method in your script. This might be info important for you, but not necessarilly visible for the public. The intention is to be able to use it in your own way when exported to Object and make it visible only if you desire. See [Data_Structure](#documentation/Data_Structure) to see where meta info is stored.<br/><br/>     It can be multiple lines and be plain text or written to be  multiple sub parameters (similar to #@param) via the following subpart syntax:  subkey[flagName:flagValue] --> This is the subkey Description
 
 *Example 1: entering meta data (js)*
 ```js
@@ -330,7 +330,7 @@ doc.meta = {
 
   
 
-Shared data can be used inside [@returns](#@returns) and [@param](#@param) 's descriptions, across multiple function/properties where inputs/outputs might be repeated. It follows the same format as the [@META](#@META) block . If you have subparams / descriptions that should be shared for these sorts of types, you can specify the shared data in a [@SHARED](#@SHARED) block like in example 1 below.<br/><br/>    Example 1: Define a shared data item. (@mySharedData)<br/>    Example 2: Then in your function you can access this by placing double @ symbol in front of the desired key, basically  @@[SHARED_KEYNAME] in a parameter or returns description.<br/>    Example 3: The resulting merged doc item. What will happen is it will basically replace the @@.. with the shared data description  as well as copy over any subparams found.
+Shared data can be used inside [@returns](#documentation/@returns) and [@param](#documentation/@param) 's descriptions, across multiple function/properties where inputs/outputs might be repeated. It follows the same format as the [@META](#documentation/@META) block . If you have subparams / descriptions that should be shared for these sorts of types, you can specify the shared data in a [@SHARED](#documentation/@SHARED) block like in example 1 below.<br/><br/>    Example 1: Define a shared data item. (@mySharedData)<br/>    Example 2: Then in your function you can access this by placing double @ symbol in front of the desired key, basically  @@[SHARED_KEYNAME] in a parameter or returns description.<br/>    Example 3: The resulting merged doc item. What will happen is it will basically replace the @@.. with the shared data description  as well as copy over any subparams found.
 
 *Example 1: entering shared data (js)*
 ```js
@@ -396,7 +396,7 @@ Documentron()
 
  *Constructor*   
  
-#### Returns: *[Documentron](#Documentron) Object* 
+#### Returns: *[Documentron](#documentation/Documentron) Object* 
 
 ```
 Documentron()
@@ -408,11 +408,11 @@ Constructor for creating a new documentron object. Src can be provided one of th
   + **url** *string*  - Provide a url to a script to parse (using ajax). See srcTxt or srcObj for other methods of providing source code / initial data. 
   + **srcTxt** *string*  - Provide source as text to parse. See url or srcObj for other methods of providing source code / initial data. 
   + **srcObj** *object*  - Provide a json object (not really parsing anything) to load in. See url or srcTxt for other methods of providing source code / initial data. 
-  + **templateEngine** *function*  - Template engine for exporter (HTML/MD/..) functions, see [About_Templating](#About_Templating) for more info. ...  *Default:* **function(tmpl, obj, _self){return _self.simpleTmplParser}**
+  + **templateEngine** *function*  - Template engine for exporter (HTML/MD/..) functions, see [About_Templating](#documentation/About_Templating) for more info. ...  *Default:* **function(tmpl, obj, _self){return _self.simpleTmplParser}**
   + **onSuccess** *function*  - callback for when source code has been successfully parsed. ...  *Default:* **function(doc,_self){}**
   + **onError** *function*  - callback for when Source Code parsing has failed for some reason. ...  *Default:* **function(error){}**
 
-**Return --&gt;** *[Documentron](#Documentron) Object* - Documentron instance
+**Return --&gt;** *[Documentron](#documentation/Documentron) Object* - Documentron instance
 
 *Example 1: Create a documentron instance via ajax (js)*
 ```js
@@ -468,8 +468,8 @@ doc.toObject()
 Grabs doc data as json object based on some options
 
 + **opts** *object* *(optional)* - Options for exporting.    
-  + **sortByGroup** *bool*  - Sort by group..instead of all as one command list @group command. See [Group_Sorting](#Group_Sorting) for more information on how this affects the data structure. ...  *Default:* **false**
-  + **filter** *Object*  - a filter object..see [Filtering_Objects](#Filtering_Objects) for more info on the filtering object ...  *Default:* **{}**
+  + **sortByGroup** *bool*  - Sort by group..instead of all as one command list @group command. See [Group_Sorting](#documentation/Group_Sorting) for more information on how this affects the data structure. ...  *Default:* **false**
+  + **filter** *Object*  - a filter object..see [Filtering_Objects](#documentation/Filtering_Objects) for more info on the filtering object ...  *Default:* **{}**
   + **linkFormat** *string|bool*  - if this is true functions/properties with #, ex. #functionName will be converted to  &lt;a href=''&gt; html links to navigate documentation.  You can also supply your own string template to be used, where {{LINK}} is the functionName. ...  *Default:* **true aka "&lt;a href='#{{LINK}} '&gt; {{LINK}} &lt;/a&gt;"**
   + **externalLinkFormat** *string|bool*  - Similar to linkformat (used for local anchor links), this converts external links. The syntax is like so: [ex. Site (http://site.com)], where {{LINK}} would be http://site.com and {{NAME}} would be "ex. Site" ...  *Default:* **true aka "&lt;a target='_blank' href='#{{LINK}} '&gt; {{NAME}} &lt;/a&gt;"**
   + **excludeMeta** *bool*  - If set true, meta will not be exported with the normal doc data. ...  *Default:* **false**
@@ -501,9 +501,9 @@ doc.generateMenu()
 Generate HTML Menu based on documentation object
 
 + **opts** *object* *(optional)* - Options for exporting.    
-  + **sortByGroup** *bool*  - Sort by group..instead of all as one command list @group command. See [Group_Sorting](#Group_Sorting) for more information on how this affects the data structure. ...  *Default:* **false**
-  + **filter** *Object*  - a filter object..see [Filtering_Objects](#Filtering_Objects) for more info on the filtering object ...  *Default:* **{}**
-  + **template** *string|bool*  - template to be used.  If set to false, the default built-in template (see [Default_Templates](#Default_Templates) ) will be used. See [About_Templating](#About_Templating) for more info. ...  *Default:* **false**
+  + **sortByGroup** *bool*  - Sort by group..instead of all as one command list @group command. See [Group_Sorting](#documentation/Group_Sorting) for more information on how this affects the data structure. ...  *Default:* **false**
+  + **filter** *Object*  - a filter object..see [Filtering_Objects](#documentation/Filtering_Objects) for more info on the filtering object ...  *Default:* **{}**
+  + **template** *string|bool*  - template to be used.  If set to false, the default built-in template (see [Default_Templates](#documentation/Default_Templates) ) will be used. See [About_Templating](#documentation/About_Templating) for more info. ...  *Default:* **false**
   + **el** *string*  - element to populate with the compiled template. By default this is false ... *e.g: * *#myDiv* *Default:* **false**
   + **anchorUrl** *string*  - Template for url (# + LINK, hash excluded from template). This applies to links (in menu) and anchors (in html and MD) specifically. Edit this if your anchors have a prefix or special formatting. You can also supply your own string template to be used, where {{LINK}} is the functionName. ... *e.g: * *"subhash/{{LINK}}"* *Default:* **"{{LINK}}"**
 
@@ -535,9 +535,9 @@ doc.generateHTML()
 Generate HTML based on documentation object
 
 + **opts** *object* *(optional)* - Options for exporting.     
-  + **sortByGroup** *bool*  - Sort by group..instead of all as one command list @group command. See [Group_Sorting](#Group_Sorting) for more information on how this affects the data structure. ...  *Default:* **false**
-  + **filter** *Object*  - a filter object..see [Filtering_Objects](#Filtering_Objects) for more info on the filtering object ...  *Default:* **{}**
-  + **template** *string|bool*  - template to be used.  If set to false, the default built-in template (see [Default_Templates](#Default_Templates) ) will be used. See [About_Templating](#About_Templating) for more info. ...  *Default:* **false**
+  + **sortByGroup** *bool*  - Sort by group..instead of all as one command list @group command. See [Group_Sorting](#documentation/Group_Sorting) for more information on how this affects the data structure. ...  *Default:* **false**
+  + **filter** *Object*  - a filter object..see [Filtering_Objects](#documentation/Filtering_Objects) for more info on the filtering object ...  *Default:* **{}**
+  + **template** *string|bool*  - template to be used.  If set to false, the default built-in template (see [Default_Templates](#documentation/Default_Templates) ) will be used. See [About_Templating](#documentation/About_Templating) for more info. ...  *Default:* **false**
   + **el** *string*  - element to populate with the compiled template. By default this is false ... *e.g: * *#myDiv* *Default:* **false**
   + **anchorUrl** *string*  - Template for url (# + LINK, hash excluded from template). This applies to links (in menu) and anchors (in html and MD) specifically. Edit this if your anchors have a prefix or special formatting. You can also supply your own string template to be used, where {{LINK}} is the functionName. ... *e.g: * *"subhash/{{LINK}}"* *Default:* **"{{LINK}}"**
   + **linkFormat** *string|bool*  - if this is true functions/properties with #, ex. #functionName will be converted to  &lt;a href=''&gt; html links to navigate documentation.  You can also supply your own string template to be used, where {{LINK}} is the functionName. ...  *Default:* **true aka "&lt;a href='#{{LINK}} '&gt; {{LINK}} &lt;/a&gt;"**
@@ -573,9 +573,9 @@ doc.generateMD()
 Generate Markdown based on documentation object
 
 + **opts** *object* *(optional)* - Options for exporting.    
-  + **sortByGroup** *bool*  - Sort by group..instead of all as one command list @group command. See [Group_Sorting](#Group_Sorting) for more information on how this affects the data structure. ...  *Default:* **false**
-  + **filter** *Object*  - a filter object..see [Filtering_Objects](#Filtering_Objects) for more info on the filtering object ...  *Default:* **{}**
-  + **template** *string|bool*  - template to be used.  If set to false, the default built-in template (see [Default_Templates](#Default_Templates) ) will be used. See [About_Templating](#About_Templating) for more info. ...  *Default:* **false**
+  + **sortByGroup** *bool*  - Sort by group..instead of all as one command list @group command. See [Group_Sorting](#documentation/Group_Sorting) for more information on how this affects the data structure. ...  *Default:* **false**
+  + **filter** *Object*  - a filter object..see [Filtering_Objects](#documentation/Filtering_Objects) for more info on the filtering object ...  *Default:* **{}**
+  + **template** *string|bool*  - template to be used.  If set to false, the default built-in template (see [Default_Templates](#documentation/Default_Templates) ) will be used. See [About_Templating](#documentation/About_Templating) for more info. ...  *Default:* **false**
   + **el** *string*  - element to populate with the compiled template. By default this is false ... *e.g: * *#myDiv* *Default:* **false**
   + **anchorUrl** *string*  - Template for url (# + LINK, hash excluded from template). This applies to links (in menu) and anchors (in html and MD) specifically. Edit this if your anchors have a prefix or special formatting. You can also supply your own string template to be used, where {{LINK}} is the functionName. ... *e.g: * *"subhash/{{LINK}}"* *Default:* **"{{LINK}}"**
   + **linkFormat** *string|bool*  - if this is true functions/properties with #, ex. #functionNames will be converted to [{{LINK}}] (#{{LINK}}) markdown links to navigate documentation. You can also supply your own string template to be used, where {{LINK}} is the functionName. ...  *Default:* **true aka [{{LINK}}] (#{{LINK}})**
@@ -721,7 +721,7 @@ Data Structure
 
   
 
-A small glimpse into what the data structure looks like (if exported as JSON or the js object template'd as MD/HTML). This may slightly change if [Group_Sorting](#Group_Sorting) is enabled. Here we document a really silly addNumbers function.
+A small glimpse into what the data structure looks like (if exported as JSON or the js object template'd as MD/HTML). This may slightly change if [Group_Sorting](#documentation/Group_Sorting) is enabled. Here we document a really silly addNumbers function.
 
 *Example 1: block for addNumbers (js)*
 ```js
@@ -823,7 +823,7 @@ Spaces in Names
 
   
 
-Functions and properties always have will never have spaces in their names, when you define the block. but what about plain info ( [@info](#@info) ) in the documentation? And what about group names ( [@group](#@group) )?  For both of these types, we convert underscores (_) to spaces ( ), so your doc looks nice and clean! So just use underscores, and don't worry about it! For links (#links) you still want to use the underscore though.
+Functions and properties always have will never have spaces in their names, when you define the block. but what about plain info ( [@info](#documentation/@info) ) in the documentation? And what about group names ( [@group](#documentation/@group) )?  For both of these types, we convert underscores (_) to spaces ( ), so your doc looks nice and clean! So just use underscores, and don't worry about it! For links (#links) you still want to use the underscore though.
 
 *Example 1: Spaces in group and info name (js)*
 ```js
