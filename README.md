@@ -1,4 +1,4 @@
-documentron.js
+documentron.js v0.500
 ============
 
 *A library for documenting libraries. See [http://documentronjs.chris-malcolm.com](http://documentronjs.chris-malcolm.com) for more info*
