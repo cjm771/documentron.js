@@ -1,7 +1,7 @@
 documentron.js v0.500
 ============
 
-*A library for documenting libraries. See [http://documentronjs.chris-malcolm.com](http://documentronjs.chris-malcolm.com) for more info*
+*A library for documenting libraries loosely based off of JSDOC.. Export methods to JSON, MD, and HTML. See [http://documentronjs.chris-malcolm.com](http://documentronjs.chris-malcolm.com) for more info*
 
   ** *Menu* **  
 
